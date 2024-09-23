@@ -1,0 +1,20 @@
+class Solution {
+    public static ArrayList<Integer> duplicates(int[] arr) {
+        
+        Set<Integer> uni = new HashSet<>();
+        Set<Integer> dupli = new HashSet<>();
+        for(int num:arr){
+            if(!uni.add(num)){
+                dupli.add(num);
+            }
+        }
+        ArrayList<Integer> array = new ArrayList<>(dupli);
+        if(array.isEmpty()){
+            array.add(-1);
+        }
+        else{
+            Collections.sort(array);
+        }
+        return array;
+    }
+}
