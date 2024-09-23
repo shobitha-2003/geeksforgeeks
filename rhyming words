@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class RhymingWord {
+    public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println("Enter the length of string");
+	    int num = sc.nextInt();
+		sc.nextLine();
+	    System.out.println("Enter the string words");
+	    String[] array = new String[num];
+	    for(int i=0;i<num;i++){
+	        array[i] = sc.nextLine();
+	        
+	    }
+        System.out.println("Give the target word");
+        String target=sc.nextLine();
+        findRhyming(array,target);
+       
+
+	}
+    public static void findRhyming(String[] words,String targ){
+        int longestRhymIndex = -1;
+		int longestRhymWord = 0;
+		for(int i=0;i<words.length;i++){
+			if(words[i].equals(targ)){
+				continue;
+			}else{
+			int rhymeWordLength = findingLength(words[i],targ);
+			if(rhymeWordLength>longestRhymWord){
+				longestRhymWord = rhymeWordLength;
+				longestRhymIndex = i;
+			}
+			}
+		}
+		System.out.println("The word is present at index: "+longestRhymIndex);
+	}
+	public static int findingLength(String word,String target){
+		int minLength = Math.min(word.length(),target.length());
+		int count=0;
+		for(int i=1;i<minLength;i++){
+			if(word.charAt(word.length()-i)==target.charAt(target.length()-i)){
+				count++;
+			}
+			else{
+				break;
+			}
+		}
+		return count;
+	}
+	
+    
+}
