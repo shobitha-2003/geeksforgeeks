@@ -1,0 +1,27 @@
+class Solution {
+    // Function to find two elements in array
+    ArrayList<Integer> findTwoElement(int arr[]) {
+        // code here
+        ArrayList<Integer> res = new ArrayList<>();
+        int miss = 0,rep = 0;
+        boolean[] visited = new boolean[arr.length+1];
+        for(int num:arr){
+            if(visited[num]){
+            rep = num;
+        }
+        else{
+            visited[num] = true;
+        }
+    }
+    for(int i=1;i<=arr.length+1;i++){
+        if(!visited[i]){
+            miss = i;
+            break;
+        }
+    }
+    res.add(rep);
+    res.add(miss);
+    return res;
+    }
+    
+}
