@@ -1,0 +1,19 @@
+class Solution {
+    // Function to check if given number n is a power of two.
+    public static boolean isPowerofTwo(int n) {
+        // code here
+        int half = n/2;
+        boolean ans = true;
+        for(int i=1;i<=half;i++){
+            if(Math.pow(2,i)==n){
+                ans = true;
+                break;
+            }
+            else if(Math.pow(2,i)>n){
+                ans = false;
+                break;
+            }
+        }
+        return ans;
+    }
+}
