@@ -1,0 +1,20 @@
+class Solution {
+    // Function to rotate an array by d elements in counter-clockwise direction.
+    static void rotateArr(int arr[], int d) {
+        // add your code here
+        ArrayList<Integer> array = new ArrayList<>();
+        for(int i=0;i<d;i++){
+            array.add(i);
+        }
+        int sub = arr.length-d;
+        int i;
+        for(i=0;i<sub;i++){
+            arr[i] = arr[i+d];
+        }
+        for(int j=0;j<array.size();j++){
+            arr[i] = array.get(j);
+            i++;
+        }
+                
+    }
+}
