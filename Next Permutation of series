@@ -1,0 +1,39 @@
+class Solution {
+    void nextPermutation(int[] arr) {
+        // code here
+        int n = arr.length;
+        int index = -1;
+        for(int i=n-2;i>=0;i--){
+            if(arr[i]<arr[i+1]){
+                index = i;
+                break;
+            }
+        }
+        if(index == -1){
+            rev(arr,0,n);
+            return;
+        }
+        int value = 0;
+        value = arr[index];
+        for(int i=n-1;i>=0;i--){
+            if(arr[i]>arr[index]){
+                arr[index]=arr[i];
+                arr[i]=value;
+                break;
+            }
+        }
+        rev(arr,index+1,n);
+    }
+    public static int[] rev(int[] array,int ind,int n){
+        
+        int swap = 0;
+        while(ind<n-1){
+            swap = array[ind];
+            array[ind] = array[n-1];
+            array[n-1] = swap;
+            ind++;
+            n--;
+        }
+        return array;
+    }
+}
