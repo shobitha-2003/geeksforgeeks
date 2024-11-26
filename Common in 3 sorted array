@@ -1,0 +1,22 @@
+class Solution {
+    // Function to find common elements in three arrays.
+    public List<Integer> commonElements(List<Integer> arr1, List<Integer> arr2,
+                                        List<Integer> arr3) {
+        // Code Here
+      Set<Integer> ans1 = new HashSet<>(arr1);
+      Set<Integer> ans2 = new HashSet<>(arr2);
+      
+      List<Integer> res = new ArrayList<>();
+      
+      for(int num:arr3){
+          if(ans1.contains(num) && ans2.contains(num)){
+              res.add(num);
+              ans1.remove(num);
+              ans2.remove(num);
+          }
+      }
+      
+     
+     return res;
+    }
+}
