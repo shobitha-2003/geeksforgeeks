@@ -1,0 +1,28 @@
+class Solution {
+    // Function to find the smallest positive number missing from the array.
+    public int missingNumber(int[] arr) {
+        
+         Set<Integer> st = new HashSet<>();
+        for (int num : arr) {
+            if (num > 0) {
+                st.add(num);
+            }
+        }
+
+        // Step 2: Convert Set to List and sort it
+        List<Integer> newArr = new ArrayList<>(st);
+        Collections.sort(newArr);
+
+        // Step 3: Find the smallest missing positive number
+        int expected = 1; // Start with 1
+        for (int num : newArr) {
+            if (num != expected) {
+                return expected; // Return the first missing number
+            }
+            expected++;
+        }
+
+        // Step 4: If all numbers are sequential, return the next number
+        return expected;  
+    }
+}
