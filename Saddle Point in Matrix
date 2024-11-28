@@ -1,0 +1,35 @@
+public class Main
+{
+	public static void main(String[] args) {
+		int mat[][] = {{-10,-20,-30},
+		                {-40,-50,-60},
+		                {-70,-80,-90}};
+         boolean ans = saddlePoint(mat);
+         if(!ans)
+             System.out.println("There is no Saddle Point");
+	}
+	public static boolean saddlePoint(int[][] mat){
+	    
+	    for(int i=0;i<mat.length;i++){
+	        int number = mat[i][0];
+	        int k=0;
+	        for(int j=1;j<mat[0].length;j++){
+	            if(number>mat[i][j]){
+	                number = mat[i][j];
+	                k=j;
+	            }
+	        }
+	        int m;
+	        for(m=0;m<mat.length;m++){
+	            if(number<mat[m][k]){
+	                break;
+	            }
+	        }
+	        if(m==mat.length){
+	            System.out.print("The Saddle Point is: "+number);
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+}
