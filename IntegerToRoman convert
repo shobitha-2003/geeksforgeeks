@@ -1,0 +1,12 @@
+class Solution {
+    String convertToRoman(int n) {
+        String[] overline = {"", "I̅", "II̅", "III̅", "IV̅", "V̅", "VI̅", "VII̅", "VIII̅", "IX̅"};
+        String[] thousand = {"", "M", "MM", "MMM"};
+        String[] hundred = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+        String[] ten = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+        String[] one = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        if (n >= 4000)
+            return overline[n / 1000] + hundred[(n % 1000) / 100] + ten[(n % 100) / 10] + one[n % 10];
+        return thousand[n / 1000] + hundred[(n % 1000) / 100] + ten[(n % 100) / 10] + one[n % 10];
+    }
+}
