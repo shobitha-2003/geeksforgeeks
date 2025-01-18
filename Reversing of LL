@@ -1,0 +1,24 @@
+class Solution {
+    Node reverseList(Node head) {
+        // code here
+        
+         if (head == null || head.next == null) {
+            return head; // Return the head as it is already reversed
+        }
+
+        Node prev = null; // This will eventually become the new tail (null)
+        Node current = head; // Start from the head of the list
+        Node nextNode; // To store the next node temporarily
+
+        
+        while (current != null) {
+            nextNode = current.next; // Save the next node
+            current.next = prev; // Reverse the pointer
+            prev = current; // Move 'prev' one step forward
+            current = nextNode; // Move 'current' one step forward
+        }
+
+      
+        return prev;
+    }
+}
