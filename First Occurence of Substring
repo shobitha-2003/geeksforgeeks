@@ -1,0 +1,16 @@
+class Solution {
+    // Function to locate the occurrence of the string x in the string s.
+    int firstOccurence(String txt, String pat) {
+        // Your code 
+       int n = txt.length();
+       int m = pat.length();
+        for(int i=0;i<=n-m;i++){
+            if(txt.substring(i,i+m).equals(pat)){
+                return i;
+            }
+        }       
+       return -1;
+      
+       
+    }
+}
